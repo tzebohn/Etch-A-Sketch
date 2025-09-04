@@ -19,7 +19,9 @@ h1 {
 }
 
 .canvas-container {
-    border: solid 1px black;
+  border: solid 1px black;
+  width: 500px;
+  height: 500px;
 }
 
 .tools-container {
@@ -53,4 +55,16 @@ h1 {
   height: 0;
   pointer-events: none;
   opacity: 0;
+}
+
+.slider-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#sliderValue {
+  font-size: small;
+  font-weight: 600;
 }

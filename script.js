@@ -14,3 +14,15 @@ colorBox.addEventListener("click", () => {
 colorInput.addEventListener("input", () => {
     colorBox.style.backgroundColor = colorInput.value
 })
+
+//Get the slider input from user
+const sliderInput = document.getElementById("sliderInput")
+
+//Display the current slider value
+const sliderValue = document.getElementById("sliderValue")
+sliderValue.textContent = `${sliderInput.value}x${sliderInput.value}`
+
+//Add event listener for sliderInput
+sliderInput.addEventListener("input", () => {
+    sliderValue.textContent = `${sliderInput.value}x${sliderInput.value}` //Update display
+})

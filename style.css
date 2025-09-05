@@ -26,6 +26,7 @@ h1 {
   max-height: 500px;
   display: flex;
   flex-wrap: wrap;
+  user-select: none; /* Prevents browser from interpreting click + drag event when user is drawing */
 }
 
 .tools-container {

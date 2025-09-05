@@ -32,9 +32,10 @@ sliderInput.addEventListener("input", () => {
 const canvas = document.getElementById("canvas")
 
 //Allow a click and drag to draw feature for user
-let isDrawing = false
-document.addEventListener("pointerdown", () => isDrawing = true)
-document.addEventListener("pointerup", () => isDrawing = false)
+let isDrawing = true
+let isMouseDown = false
+document.addEventListener("pointerdown", () => isMouseDown = true)
+document.addEventListener("pointerup", () => isMouseDown = false)
 
 //Generate the default canvas
 generateCanvas(sliderInput.value)
@@ -54,7 +55,7 @@ function generateCanvas(num) {
         square.style.width = `${width}%`
         square.addEventListener("pointerdown", paint)
         square.addEventListener("pointerenter", (e) => { 
-            if(isDrawing) {
+            if(isMouseDown) {
                 paint(e)
             }
         })
@@ -64,7 +65,21 @@ function generateCanvas(num) {
 
 //Paints the corresponding square
 function paint(e) {
-    console.log("called")
-    e.target.style.backgroundColor = colorInput.value
+    if (isDrawing){
+        e.target.style.backgroundColor = colorInput.value
+        console.log(colorInput.value)
+    }
+    else if (!isDrawing) {
+        e.target.style.backgroundColor = "#ffffff"
+    }
 }
 
+//Function sets isDrawing on or off
+const setEraser = () => {
+    isDrawing = !isDrawing
+}
+
+//Function clears the drawing on canvas
+const clearCanvas = () => {
+    generateCanvas(sliderInput.value)
+}
